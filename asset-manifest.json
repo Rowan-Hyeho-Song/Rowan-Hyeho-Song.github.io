@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2280eb6.css",
-    "main.js": "/static/js/main.07da90ae.js",
+    "main.css": "/static/css/main.2ca6cea2.css",
+    "main.js": "/static/js/main.b47fcba4.js",
     "static/js/787.7da95b79.chunk.js": "/static/js/787.7da95b79.chunk.js",
     "static/media/NotoSansKR-Thin.ttf": "/static/media/NotoSansKR-Thin.3c76aeeeb0d5302e0042.ttf",
     "static/media/NotoSansKR-ExtraLight.ttf": "/static/media/NotoSansKR-ExtraLight.a8d29999646a399fbca4.ttf",
@@ -13,12 +13,12 @@
     "static/media/NotoSansKR-SemiBold.ttf": "/static/media/NotoSansKR-SemiBold.cffe4dcd89082d2d3f3b.ttf",
     "static/media/NotoSansKR-Black.ttf": "/static/media/NotoSansKR-Black.3a04960e264ac5544a85.ttf",
     "index.html": "/index.html",
-    "main.d2280eb6.css.map": "/static/css/main.d2280eb6.css.map",
-    "main.07da90ae.js.map": "/static/js/main.07da90ae.js.map",
+    "main.2ca6cea2.css.map": "/static/css/main.2ca6cea2.css.map",
+    "main.b47fcba4.js.map": "/static/js/main.b47fcba4.js.map",
     "787.7da95b79.chunk.js.map": "/static/js/787.7da95b79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2280eb6.css",
-    "static/js/main.07da90ae.js"
+    "static/css/main.2ca6cea2.css",
+    "static/js/main.b47fcba4.js"
   ]
 }
