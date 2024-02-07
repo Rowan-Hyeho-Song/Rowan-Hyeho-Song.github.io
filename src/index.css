@@ -56,6 +56,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Noto Sans KR';
 }
 body {
     margin: 0;
@@ -75,5 +76,5 @@ code {
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
-    user-select:none
+    user-select:none;
 }
