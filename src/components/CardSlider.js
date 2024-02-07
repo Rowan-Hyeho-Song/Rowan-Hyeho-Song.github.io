@@ -100,12 +100,13 @@ function CardSlider (props) {
     const [curFocus, setCurFocus] = useState(0);
     const [cardList, setCardList] = useState([]);
 
-    const itemSize = items.length
-    const translate = `calc(-${innerRadius} - ${floatViewport})`;
+    const itemSize = items.length;
     
+    // set item order
     useEffect(() => {
         const point = itemSize / 2;
         const angle = 8;
+        const translate = `calc(-${innerRadius} - ${floatViewport})`;
         
         const cards = items.map((item) => {
             const order = item.key - curFocus;
@@ -130,8 +131,10 @@ function CardSlider (props) {
         });
         cards.sort((a, b) => a.order - b.order);
         setCardList(cards);
-    }, [curFocus, itemSize, items, translate]);
+    }, [curFocus, floatViewport, innerRadius, itemSize, items]);
 
+
+    // set current focused card
     useEffect(() => {
         cardList.some((card) => {
             if (Math.abs(card.rotate + curArc) % 360 < 5) {
@@ -142,6 +145,7 @@ function CardSlider (props) {
         });
     }, [curArc, cardList]);
 
+    // rotate card wrapper
     useEffect(() => {
         const target = document.getElementById("slider-container");
         const wrapper = document.getElementById("card-wrapper");
@@ -155,7 +159,6 @@ function CardSlider (props) {
             let { pageX: startX, pageY: startY } = e;
 
             const moveHandler = (e) => {
-                console.log(e);
                 const { pageX: endX, pageY: endY } = e;
                 const { x: centerX, y: centerY } = center;
                 const vectorSCX = startX - centerX;
@@ -206,7 +209,7 @@ function CardSlider (props) {
                                 key={card.key} 
                                 className={card.order === 0 ? "focus": ""}
                                 style={{
-                                    transform: `rotate(${card.rotate}deg) translateY(${translate})`,
+                                    transform: `rotate(${card.rotate}deg) translateY(${card.translate})`,
                                     backgroundColor: card.color
                                 }}
                             >
@@ -222,12 +225,12 @@ function CardSlider (props) {
                                 key={card.key} 
                                 className={card.order === 0 ? "focus": ""}
                                 style={{
-                                    transform: `rotate(${card.rotate}deg) translateY(${translate})`,
+                                    transform: `rotate(${card.rotate}deg) translateY(${card.translate})`,
                                     backgroundColor: card.color
                                 }}
                             >
-                            <div className="dummy-card">···</div>
-                        </Card>
+                                <div className="dummy-card">···</div>
+                            </Card>
                         )
                     }
                 })}
