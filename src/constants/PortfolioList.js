@@ -10,26 +10,26 @@ const colors = [
 ];
 const emptyColor = ['#303030', '#333333', '#3E3E3E'];
 const empty = {
-    title: "..."
+    title: "dummy"
 };
 const datas = [
     {
-        title: "Test-01"
+        title: "Test Item"
     },
     {
-        title: "Test-02"
+        title: "Long Title Test Item"
     },
     {
-        title: "Test-03"
+        title: "Test Item"
     },
     {
-        title: "Test-04"
+        title: "Test Item"
     },
     {
-        title: "Test-05"
+        title: "Test Item"
     },
     {
-        title: "Test-06"
+        title: "Test Item"
     }
 ];
 const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
