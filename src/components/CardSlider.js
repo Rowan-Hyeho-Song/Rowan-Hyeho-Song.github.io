@@ -8,7 +8,6 @@ justify-content: center;
 align-items: center;
 width: 100%;
 height: 100%;
-border: 1px solid red;
 `;
 
 const CardWrapper = styled.ul.attrs((props) => {
@@ -48,10 +47,11 @@ const Card = styled.li.attrs((props) => ({
     backgroundColor: props.color
 }))`
 position: absolute;
+display: flex;
 width: 20vh;
 height: 27vh;
+padding: 10px;
 
-text-align: center;
 font-weight: 600;
 z-index: 0;
 
@@ -66,6 +66,26 @@ user-select:none;
 
 &.focus, &:hover {
     z-index: 2;
+}
+> div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+    border: 2px solid white;
+}
+> div.dummy-card {
+    text-align: center;
+    font-size: 4em;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2em;
+}
+.number {
+    font-size: 2em;
 }
 `;
 
@@ -171,16 +191,36 @@ function CardSlider (props) {
                 innerRadius={innerRadius}
             >
                 { cardList && cardList.map((card) => {
-                    return (
-                        <Card 
-                            key={card.key} 
-                            className={card.order === 0 ? "focus": ""}
-                            style={{
-                                transform: `rotate(${card.rotate}deg) translateY(${translate})`,
-                                backgroundColor: card.color
-                            }}
-                        >{card.title}</Card>
-                    );
+                    if (card.title !== "dummy") {
+                        return (
+                            <Card 
+                                key={card.key} 
+                                className={card.order === 0 ? "focus": ""}
+                                style={{
+                                    transform: `rotate(${card.rotate}deg) translateY(${translate})`,
+                                    backgroundColor: card.color
+                                }}
+                            >
+                                <div>
+                                    <div className="title">{card.title}</div>
+                                    <div className="number">{`${card.key + 1}`.padStart(2, "0")}</div>
+                                </div>
+                            </Card>
+                        );
+                    } else {
+                        return (
+                            <Card 
+                                key={card.key} 
+                                className={card.order === 0 ? "focus": ""}
+                                style={{
+                                    transform: `rotate(${card.rotate}deg) translateY(${translate})`,
+                                    backgroundColor: card.color
+                                }}
+                            >
+                            <div className="dummy-card">···</div>
+                        </Card>
+                        )
+                    }
                 })}
             </CardWrapper>
         </Container>
