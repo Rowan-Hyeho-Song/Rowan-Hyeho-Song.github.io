@@ -135,6 +135,7 @@ function CardSlider (props) {
             let { pageX: startX, pageY: startY } = e;
 
             const moveHandler = (e) => {
+                console.log(e);
                 const { pageX: endX, pageY: endY } = e;
                 const { x: centerX, y: centerY } = center;
                 const vectorSCX = startX - centerX;
@@ -156,17 +157,17 @@ function CardSlider (props) {
             target.addEventListener("mousemove", moveHandler);
             target.addEventListener("mouseup", upHandler, { once: true });
             // touch event
-            target.addEventListener("touchmove", moveHandler);
-            target.addEventListener("touchend", upHandler, { once: true });
+            // target.addEventListener("touchmove", moveHandler);
+            // target.addEventListener("touchend", upHandler, { once: true });
         };
         // mouse event
         target.addEventListener("mousedown", bindRotateCardEvent);
         // touch event
-        target.addEventListener("touchstart", bindRotateCardEvent);
+        // target.addEventListener("touchstart", bindRotateCardEvent);
 
         return () => {
             target.removeEventListener("mousedown", bindRotateCardEvent);
-            target.removeEventListener("touchstart", bindRotateCardEvent);
+            // target.removeEventListener("touchstart", bindRotateCardEvent);
         };
     }, [curArc]);
 
