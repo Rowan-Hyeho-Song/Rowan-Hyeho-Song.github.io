@@ -152,13 +152,21 @@ function CardSlider (props) {
             const upHandler = (e) => {
                 target.removeEventListener("mousemove", moveHandler);
             };
+            // mouse event
             target.addEventListener("mousemove", moveHandler);
             target.addEventListener("mouseup", upHandler, { once: true });
+            // touch event
+            target.addEventListener("touchmove", moveHandler);
+            target.addEventListener("touchend", upHandler, { once: true });
         };
+        // mouse event
         target.addEventListener("mousedown", bindRotateCardEvent);
+        // touch event
+        target.addEventListener("touchstart", bindRotateCardEvent);
 
         return () => {
             target.removeEventListener("mousedown", bindRotateCardEvent);
+            target.removeEventListener("touchstart", bindRotateCardEvent);
         };
     }, [curArc]);
 
