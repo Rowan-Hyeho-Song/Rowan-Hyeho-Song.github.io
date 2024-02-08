@@ -12,6 +12,7 @@ const emptyColor = '#111617';
 const empty = {
     title: "dummy"
 };
+
 const datas = [
     {
         title: "Test Item",
@@ -22,19 +23,47 @@ const datas = [
         date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item",
+        title: "Lorem ipsum dolor sit amet",
         date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item",
+        title: "consectetur adipiscing elit",
         date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item",
+        title: "sed do eiusmod tempor",
         date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item",
+        title: "incididunt ut labore",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "et dolore magna aliqua",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "Ut enim ad minim veniam",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "quis nostrud",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "exercitation ullamco laboris",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "nisi ut aliquip",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "ex ea commodo consequat",
+        date: ["FEBRUARY", 2024]
+    },
+    {
+        title: "Duis aute irure dolor",
         date: ["FEBRUARY", 2024]
     }
 ];

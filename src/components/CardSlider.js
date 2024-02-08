@@ -154,11 +154,13 @@ function CardSlider (props) {
     const [cardList, setCardList] = useState([]);
 
     const itemSize = items.length;
-    const translate = `calc(-${innerRadius} - ${floatViewport})`;
     
+    // set item order
     useEffect(() => {
         const point = itemSize / 2;
+
         const angle = 13;
+        const translate = `calc(-${innerRadius} - ${floatViewport})`;
         
         const cards = items.map((item) => {
             const order = item.key - curFocus;
@@ -182,8 +184,10 @@ function CardSlider (props) {
             return item;
         });
         setCardList(cards);
-    }, [curFocus, itemSize, items, translate]);
+    }, [curFocus, floatViewport, innerRadius, itemSize, items]);
 
+
+    // set current focused card
     useEffect(() => {
         cardList.some((card) => {
             if (Math.abs(card.rotate + curArc) % 360 < 5) {
@@ -194,6 +198,7 @@ function CardSlider (props) {
         });
     }, [curArc, cardList]);
 
+    // rotate card wrapper
     useEffect(() => {
         const target = document.getElementById("slider-container");
         const wrapper = document.getElementById("card-wrapper");
@@ -224,13 +229,21 @@ function CardSlider (props) {
             const upHandler = (e) => {
                 target.removeEventListener("mousemove", moveHandler);
             };
+            // mouse event
             target.addEventListener("mousemove", moveHandler);
             target.addEventListener("mouseup", upHandler, { once: true });
+            // touch event
+            // target.addEventListener("touchmove", moveHandler);
+            // target.addEventListener("touchend", upHandler, { once: true });
         };
+        // mouse event
         target.addEventListener("mousedown", bindRotateCardEvent);
+        // touch event
+        // target.addEventListener("touchstart", bindRotateCardEvent);
 
         return () => {
             target.removeEventListener("mousedown", bindRotateCardEvent);
+            // target.removeEventListener("touchstart", bindRotateCardEvent);
         };
     }, [curArc]);
 
