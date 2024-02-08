@@ -8,26 +8,28 @@ justify-content: center;
 align-items: center;
 width: 100%;
 height: 100%;
+
+cursor: grab;
 `;
 
 const CardWrapper = styled.ul.attrs((props) => {
-    const { position, innerRadius, rotate } = props;
-    const [x, y] = position.split(" ");
+    const { $position, $innerRadius, $rotate } = props;
+    const [x, y] = $position.split(" ");
     const pos = ["0px", "0px"];
     switch(x) {
-        case "left": pos[0] = `calc(-50vw - ${innerRadius})`; break;
-        case "right": pos[0] = `calc(50vw + ${innerRadius})`; break;
+        case "left": pos[0] = `calc(-50vw - ${$innerRadius})`; break;
+        case "right": pos[0] = `calc(50vw + ${$innerRadius})`; break;
         default: break;
     };
     switch(y) {
-        case "top": pos[1] = `calc(-50vh - ${innerRadius})`; break;
-        case "bottom": pos[1] = `calc(50vh + ${innerRadius})`; break;
+        case "top": pos[1] = `calc(-50vh - ${$innerRadius})`; break;
+        case "bottom": pos[1] = `calc(50vh + ${$innerRadius})`; break;
         default: break;
     };
 
     return { 
         style: {
-            transform: `translate(${pos.join(",")}) rotate(${rotate}deg)`
+            transform: `translate(${pos.join(",")}) rotate(${$rotate}deg)`
         }
     }
 })`
@@ -43,33 +45,40 @@ margin: 0;
 padding: 0;
 `;
 
-const Card = styled.li.attrs((props) => ({
-    backgroundColor: props.color
-}))`
+const Card = styled.li`
 position: absolute;
 display: flex;
 width: 25vh;
 height: 34vh;
 padding: 10px;
 
-font-weight: 600;
-z-index: 0;
+font-weight: 500;
+z-index: ${props => props.$style.index};
+background-color: ${props => props.$style.backgroundColor};
+transform: ${props => {
+    const { rotate, translate } = props.$style;
+    return `rotate(${rotate}deg) translateY(${translate})`;
+}};
 
 cursor: pointer;
 transform-origin: center bottom;
 color: white;
 
--webkit-user-select:none;
--moz-user-select:none;
--ms-user-select:none;
-user-select:none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 
 &.focus {
-    z-index: 1;
+    transition: .3s transform;
+    transform: ${props => {
+        const { rotate, translate } = props.$style;
+        return `rotate(${rotate}deg) translateY(${translate}) scale(1.03)`;
+    }};
+    z-index: 20;
 }
-&:hover {
-    z-index: 2;
-}
+&:hover { z-index: 21; }
+
 > div {
     display: flex;
     flex-direction: column;
@@ -82,14 +91,11 @@ user-select:none;
     font-size: 7em;
     color: #303030;
     justify-content: center;
+    cursor: auto;
 }
 
-.title {
-    font-size: 2em;
-}
-.number {
-    font-size: 2em;
-}
+.title { font-size: 2em; }
+.number { font-size: 2em; }
 `;
 
 function CardSlider (props) {
@@ -103,7 +109,7 @@ function CardSlider (props) {
     const [curFocus, setCurFocus] = useState(0);
     const [cardList, setCardList] = useState([]);
 
-    const itemSize = items.length
+    const itemSize = items.length;
     const translate = `calc(-${innerRadius} - ${floatViewport})`;
     
     useEffect(() => {
@@ -131,7 +137,6 @@ function CardSlider (props) {
             }
             return item;
         });
-        cards.sort((a, b) => a.order - b.order);
         setCardList(cards);
     }, [curFocus, itemSize, items, translate]);
 
@@ -189,19 +194,21 @@ function CardSlider (props) {
         <Container id="slider-container">
             <CardWrapper 
                 id="card-wrapper" 
-                rotate={curArc} 
-                position={"center bottom"}
-                innerRadius={innerRadius}
+                $rotate={curArc} 
+                $position={"center bottom"}
+                $innerRadius={innerRadius}
             >
                 { cardList && cardList.map((card) => {
                     if (card.title !== "dummy") {
                         return (
-                            <Card 
+                            <Card
                                 key={card.key} 
-                                className={card.order === 0 ? "focus": ""}
-                                style={{
-                                    transform: `rotate(${card.rotate}deg) translateY(${translate})`,
-                                    backgroundColor: card.color
+                                className={card.order === 0 && "focus"}
+                                $style={{
+                                    rotate: card.rotate,
+                                    translate: card.translate,
+                                    backgroundColor: card.color,
+                                    index: card.order
                                 }}
                             >
                                 <div>
@@ -214,10 +221,12 @@ function CardSlider (props) {
                         return (
                             <Card 
                                 key={card.key} 
-                                className={card.order === 0 ? "focus": ""}
-                                style={{
-                                    transform: `rotate(${card.rotate}deg) translateY(${translate})`,
-                                    backgroundColor: card.color
+                                className={card.order === 0 && "focus"}
+                                $style={{
+                                    rotate: card.rotate,
+                                    translate: card.translate,
+                                    backgroundColor: card.color,
+                                    index: card.order
                                 }}
                             >
                             <div className="dummy-card">···</div>
