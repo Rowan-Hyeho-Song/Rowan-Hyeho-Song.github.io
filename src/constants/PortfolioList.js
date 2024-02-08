@@ -14,22 +14,28 @@ const empty = {
 };
 const datas = [
     {
-        title: "Test Item"
+        title: "Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Long Title Test Item"
+        title: "Long Title Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Test Item",
+        date: ["FEBRUARY", 2024]
     }
 ];
 const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
