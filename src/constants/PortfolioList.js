@@ -3,61 +3,75 @@
  */
 const colors = [
     '#90211B', '#A82921', '#C13229',
-    '#3E379E', '#473FAA', '#4E47B4',
-    '#1C7D93', '#1A788F', '#1B7A90',
-    '#567C24', '#67982A', '#80BF32',
-    '#BCA821', '#CFB823', '#EBCE13'
+    '#3F379F', '#4941AE', '#4D45B1',
+    '#187186', '#1B788D', '#1C7B92',
+    '#51A831', '#56B237', '#5FBC40',
+    '#DBAE10', '#E8B816', '#F5C41B'
 ];
-const emptyColor = ['#303030', '#333333', '#3E3E3E'];
+const emptyColor = '#111617';
 const empty = {
     title: "dummy"
 };
+
 const datas = [
     {
-        title: "Test Item"
+        title: "Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Long Title Test Item"
+        title: "Long Title Test Item",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Lorem ipsum dolor sit amet",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "consectetur adipiscing elit",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "sed do eiusmod tempor",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "incididunt ut labore",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "et dolore magna aliqua",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Ut enim ad minim veniam",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "quis nostrud",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "exercitation ullamco laboris",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "nisi ut aliquip",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "ex ea commodo consequat",
+        date: ["FEBRUARY", 2024]
     },
     {
-        title: "Test Item"
+        title: "Duis aute irure dolor",
+        date: ["FEBRUARY", 2024]
     }
 ];
 const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
     if (i < datas.length) {
         return { ...datas[i], key: i, color: colors[i % colors.length] };
     }
-    return { ...empty, color: emptyColor[i % emptyColor.length], key: i };
+    return { ...empty, color: emptyColor, key: i };
 });
 
 export default PortfolioList;
