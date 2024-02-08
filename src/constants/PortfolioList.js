@@ -3,12 +3,12 @@
  */
 const colors = [
     '#90211B', '#A82921', '#C13229',
-    '#3E379E', '#473FAA', '#4E47B4',
-    '#1C7D93', '#1A788F', '#1B7A90',
-    '#567C24', '#67982A', '#80BF32',
-    '#BCA821', '#CFB823', '#EBCE13'
+    '#3F379F', '#4941AE', '#4D45B1',
+    '#187186', '#1B788D', '#1C7B92',
+    '#51A831', '#56B237', '#5FBC40',
+    '#DBAE10', '#E8B816', '#F5C41B'
 ];
-const emptyColor = ['#303030', '#333333', '#3E3E3E'];
+const emptyColor = '#111617';
 const empty = {
     title: "dummy"
 };
@@ -36,7 +36,7 @@ const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) 
     if (i < datas.length) {
         return { ...datas[i], key: i, color: colors[i % colors.length] };
     }
-    return { ...empty, color: emptyColor[i % emptyColor.length], key: i };
+    return { ...empty, color: emptyColor, key: i };
 });
 
 export default PortfolioList;

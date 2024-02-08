@@ -48,8 +48,8 @@ const Card = styled.li.attrs((props) => ({
 }))`
 position: absolute;
 display: flex;
-width: 20vh;
-height: 27vh;
+width: 25vh;
+height: 34vh;
 padding: 10px;
 
 font-weight: 600;
@@ -64,7 +64,10 @@ color: white;
 -ms-user-select:none;
 user-select:none;
 
-&.focus, &:hover {
+&.focus {
+    z-index: 1;
+}
+&:hover {
     z-index: 2;
 }
 > div {
@@ -73,11 +76,11 @@ user-select:none;
     justify-content: space-between;
     flex: 1;
     padding: 10px;
-    border: 2px solid white;
 }
 > div.dummy-card {
     text-align: center;
-    font-size: 4em;
+    font-size: 7em;
+    color: #303030;
     justify-content: center;
 }
 
@@ -105,7 +108,7 @@ function CardSlider (props) {
     
     useEffect(() => {
         const point = itemSize / 2;
-        const angle = 8;
+        const angle = 13;
         
         const cards = items.map((item) => {
             const order = item.key - curFocus;

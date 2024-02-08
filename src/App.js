@@ -5,7 +5,7 @@ import PortfolioList from 'constants/PortfolioList.js';
 function App() {
     return (
         <div className="App">
-            <CardSlider items={PortfolioList} innerRadius={"50vw"}></CardSlider>
+            <CardSlider items={PortfolioList} innerRadius={"30vw"} floatViewport={"60%"}></CardSlider>
         </div>
     );
 }
