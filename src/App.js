@@ -1,11 +1,10 @@
 import './App.css';
-import CardSlider from 'components/CardSlider';
-import PortfolioList from 'constants/PortfolioList.js';
+import MainPage from 'pages/MainPage';
 
 function App() {
     return (
         <div className="App">
-            <CardSlider items={PortfolioList} innerRadius={"30vw"} floatViewport={"60%"}></CardSlider>
+            <MainPage></MainPage>
         </div>
     );
 }
