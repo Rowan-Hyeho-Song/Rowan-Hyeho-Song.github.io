@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from "components/Layout";
 import MainPage from 'pages/MainPage';
 
 const Container = styled.div`
@@ -15,13 +14,11 @@ overflow: hidden;
 const Router = () => {
 	return (
         <Container>
-            <Layout>
-                <BrowserRouter>                                    
-                    <Routes>                                             
-                        <Route path='/' element={<MainPage />} />        
-                    </Routes>
-                </BrowserRouter>
-            </Layout>
+            <BrowserRouter>                                    
+                <Routes>                                             
+                    <Route path='/' element={<MainPage />} />        
+                </Routes>
+            </BrowserRouter>
         </Container>
 	);
 };
