@@ -31,7 +31,7 @@ a {
 function Footer() {
     return ( 
         <Box>
-            <Link to="/" className="about">about rowan song</Link>
+            <Link to="/about" className="about">about rowan song</Link>
             <LinkGroup>
                 <a href="https://github.com/Rowan-Hyeho-Song">github</a>
             </LinkGroup>

@@ -14,14 +14,17 @@ flex: auto;
 `;
 
 function Layout(props) {
-    const { children } = props;
+    const { 
+        children,
+        $footerEnable = true
+    } = props;
     return (
         <Container>
             <Header></Header>
             <Main>
                 { children }
             </Main>
-            <Footer></Footer>
+            {$footerEnable && <Footer></Footer>}
         </Container>
     );
 }

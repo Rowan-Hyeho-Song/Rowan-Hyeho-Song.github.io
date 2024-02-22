@@ -136,7 +136,7 @@ user-select: none;
     align-items: flex-end;
 }
 .number { font-size: 2.3em; }
-.copyright { font-size: 0.2em; width: 30%; font-weight: 400; }
+.copyright { font-size: 0.2em; width: 25%; font-weight: 400; }
 `;
 
 function CardSlider (props) {
