@@ -244,6 +244,8 @@ function CardSlider (props) {
         };
     }, [curArc]);
 
+    const goLink = (url) => window.open(url);
+
     return (
         <Container id="slider-container">
             <CardWrapper 
@@ -264,6 +266,7 @@ function CardSlider (props) {
                                     backgroundColor: card.color,
                                     index: card.order
                                 }}
+                                onClick={() => goLink(card.url)}
                             >
                                 <div className="description">
                                     <div className="des-title">{card.title}</div>
