@@ -3,7 +3,9 @@ import { useState, useRef } from 'react';
 import Layout from "components/Layout";
 import SimpleBar from "components/SimpleBar";
 import TagGroup from 'components/TagGroup';
+import CareerList from 'components/CareerList';
 import ProfileSkills from 'constants/ProfileSkills';
+import ProfileCareers from 'constants/ProfileCareers';
 
 
 const Container = styled.div`
@@ -43,7 +45,7 @@ font-weight: 700;
 padding: 0 0 8px 0;
 `;
 
-const Chart = styled.div`
+const Box = styled.div`
     width: 100%;
 `;
 
@@ -70,17 +72,18 @@ function AboutPage() {
                     <Block $flex={1}>
                         <Title>Skills</Title>
                         <TagGroup datas={skills} $onClick={toggleEnable} />
-                        <Chart>
+                        <Box>
                             <SimpleBar 
                                 width={500}
                                 height={300}
                                 marginLeft={70}
                                 marginBottom={20}
                                 datas={skills} />
-                        </Chart>
+                        </Box>
                     </Block>
                     <Block $flex={1}>
                         <Title>Careers</Title>
+                        <CareerList datas={ProfileCareers} />
                     </Block>
                 </SplitView>
             </Container>
