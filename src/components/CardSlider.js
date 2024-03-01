@@ -8,7 +8,7 @@ justify-content: center;
 align-items: center;
 width: 100%;
 height: 100%;
-
+font-family: 'Noto Sans KR';
 cursor: grab;
 `;
 
@@ -127,10 +127,7 @@ user-select: none;
     }
 }
 
-.card-header {
-    display: flex;
-    flex-direction: column;
-}
+.card-header { display: flex; flex-direction: column; }
 .date { font-size: 0.2em; font-weight: 400; text-align: right; }
 .title { font-size: 2em; }
 .card-footer {
@@ -139,7 +136,7 @@ user-select: none;
     align-items: flex-end;
 }
 .number { font-size: 2.3em; }
-.copyright { font-size: 0.2em; width: 30%; font-weight: 400; }
+.copyright { font-size: 0.2em; width: 25%; font-weight: 400; }
 `;
 
 function CardSlider (props) {
@@ -247,6 +244,8 @@ function CardSlider (props) {
         };
     }, [curArc]);
 
+    const goLink = (url) => window.open(url);
+
     return (
         <Container id="slider-container">
             <CardWrapper 
@@ -267,6 +266,7 @@ function CardSlider (props) {
                                     backgroundColor: card.color,
                                     index: card.order
                                 }}
+                                onClick={() => goLink(card.url)}
                             >
                                 <div className="description">
                                     <div className="des-title">{card.title}</div>
@@ -280,7 +280,7 @@ function CardSlider (props) {
                                     <div className="card-footer">
                                         <div className="number">{`${card.key + 1}`.padStart(2, "0")}</div>
                                         <div className="copyright">
-                                            ⓒ 2012 Form Follows function
+                                            ⓒ 2012<br />Form<br />Follows<br />function
                                             <br /><br />
                                             <span style={{fontWeight: 200}}>Jongmin Kim</span>
                                         </div>

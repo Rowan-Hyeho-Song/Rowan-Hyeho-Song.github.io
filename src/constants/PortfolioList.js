@@ -15,56 +15,24 @@ const empty = {
 
 const datas = [
     {
-        title: "Test Item",
-        date: ["FEBRUARY", 2024]
+        title: "Blog-Example",
+        date: ["JANUARY", 2020],
+        url: "https://github.com/Roar-Song/Blog-Example"
     },
     {
-        title: "Long Title Test Item",
-        date: ["FEBRUARY", 2024]
+        title: "Mini TowerDefense",
+        date: ["JANUARY", 2020],
+        url: "https://github.com/Roar-Song/MiniTowerDefense"
     },
     {
-        title: "Lorem ipsum dolor sit amet",
-        date: ["FEBRUARY", 2024]
+        title: "Mango CRM",
+        date: ["FEBRUARY", 2020],
+        url: "https://github.com/Roar-Song/MangoCRM"
     },
     {
-        title: "consectetur adipiscing elit",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "sed do eiusmod tempor",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "incididunt ut labore",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "et dolore magna aliqua",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "Ut enim ad minim veniam",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "quis nostrud",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "exercitation ullamco laboris",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "nisi ut aliquip",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "ex ea commodo consequat",
-        date: ["FEBRUARY", 2024]
-    },
-    {
-        title: "Duis aute irure dolor",
-        date: ["FEBRUARY", 2024]
+        title: "2020 Portfolio Site",
+        date: ["FEBRUARY", 2020],
+        url: "https://roar-song.github.io/"
     }
 ];
 const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {

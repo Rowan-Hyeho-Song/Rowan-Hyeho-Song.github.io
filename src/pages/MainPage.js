@@ -1,13 +1,13 @@
-import './App.css';
+import Layout from "components/Layout";
 import CardSlider from 'components/CardSlider';
-import PortfolioList from 'constants/PortfolioList.js';
+import PortfolioList from 'constants/PortfolioList';
 
-function App() {
+function MainPage() {
     return (
-        <div className="App">
+        <Layout>
             <CardSlider items={PortfolioList} innerRadius={"30vw"} floatViewport={"60%"}></CardSlider>
-        </div>
+        </Layout>
     );
 }
 
-export default App;
+export default MainPage;
