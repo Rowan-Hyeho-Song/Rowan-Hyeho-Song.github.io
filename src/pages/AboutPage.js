@@ -71,7 +71,7 @@ const Chart = styled.div`
 `;
 
 function AboutPage() {
-    const [skills, setSkills] = useState(ProfileSkills.map((skill, i) => ({...skill, enable: i % 2 === 0})));
+    const [skills, setSkills] = useState(ProfileSkills);
     const toggleEnable = (index) => {
         skills[index].enable = !skills[index].enable;
         setSkills([...skills]);
@@ -104,13 +104,15 @@ function AboutPage() {
                         <Chart>
                             <SimpleBar 
                                 width={500}
-                                height={200}
+                                height={300}
                                 marginLeft={70}
                                 marginBottom={20}
                                 datas={skills} />
                         </Chart>
                     </Block>
-                    <Block $flex={1}></Block>
+                    <Block $flex={1}>
+                        <Title>Careers</Title>
+                    </Block>
                 </SplitView>
             </Container>
         </Layout>
