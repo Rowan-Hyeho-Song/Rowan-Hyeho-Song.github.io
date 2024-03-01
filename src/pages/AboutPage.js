@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState, useRef } from 'react';
 import Layout from "components/Layout";
 import SimpleBar from "components/SimpleBar";
+import TagGroup from 'components/TagGroup';
 import ProfileSkills from 'constants/ProfileSkills';
 
 
@@ -34,36 +35,12 @@ color: #333333;
 const SplitView = styled.div`
 display: flex;
 flex-direction: row;
-`
+`;
 
 const Title = styled.div`
 font-size: 1.5em;
 font-weight: 700;
 padding: 0 0 8px 0;
-`
-
-const TagGroup = styled.div`
-display: flex;
-flex-direction: row;
-width: 100%;
-margin-bottom: 10px;
-`
-
-const Tag = styled.span`
-flex: none;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-border-radius: 4px;
-background-color: ${(props) => props.$color};
-padding: 2px 8px;
-color: white;
-font-weight: 500;
-cursor: pointer;
-&.disabled { background-color: #616161; }
-&:not(:last-child) { margin-right: 5px; }
-svg { margin-right: 4px; }
 `;
 
 const Chart = styled.div`
@@ -92,15 +69,7 @@ function AboutPage() {
                 <SplitView>
                     <Block $flex={1}>
                         <Title>Skills</Title>
-                        <TagGroup>
-                            { skills.map((skill, i) => 
-                                <Tag className={!skill.enable && "disabled"} $color={skill.color}
-                                    onClick={() => toggleEnable(i)} key={skill.key}
-                                >
-                                    {skill.icon}{skill.key}
-                                </Tag>
-                            )}
-                        </TagGroup>
+                        <TagGroup datas={skills} $onClick={toggleEnable} />
                         <Chart>
                             <SimpleBar 
                                 width={500}
