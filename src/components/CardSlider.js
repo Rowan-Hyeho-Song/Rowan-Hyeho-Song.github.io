@@ -98,6 +98,7 @@ user-select: none;
     justify-content: space-between;
     flex: 1;
     padding: 5px;
+    pointer-events: none;
 }
 > div.dummy-card {
     font-size: 4em;
