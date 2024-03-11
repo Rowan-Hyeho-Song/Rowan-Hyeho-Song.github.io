@@ -33,6 +33,11 @@ const datas = [
         title: "2020 Portfolio Site",
         date: ["FEBRUARY", 2020],
         url: "https://roar-song.github.io/"
+    },
+    {
+        title: "Netflix Clone Site",
+        date: ["MARCH", 2024],
+        url: "https://rowan-hyeho-song.github.io/Netflix/"
     }
 ];
 const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
