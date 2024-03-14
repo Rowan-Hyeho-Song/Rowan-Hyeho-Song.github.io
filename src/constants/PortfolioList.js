@@ -45,11 +45,21 @@ const datas = [
         url: "https://rowan-hyeho-song.github.io/SimpleCube/"
     }
 ];
-const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
-    if (i < datas.length) {
-        return { ...datas[i], key: i, color: colors[i % colors.length] };
-    }
-    return { ...empty, color: emptyColor, key: i };
-});
+// const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
+//     if (i < datas.length) {
+//         return { ...datas[i], key: i, color: colors[i % colors.length] };
+//     }
+//     return { ...empty, color: emptyColor, key: i };
+// });
 
-export default PortfolioList;
+const getPortfolioList = () => {
+    const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
+        if (i < datas.length) {
+            return { ...datas[i], key: i, color: colors[i % colors.length] };
+        }
+        return { ...empty, color: emptyColor, key: i };
+    });
+    return PortfolioList;
+}
+
+export default getPortfolioList;
