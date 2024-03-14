@@ -38,6 +38,11 @@ const datas = [
         title: "Netflix Clone Site",
         date: ["MARCH", 2024],
         url: "https://rowan-hyeho-song.github.io/Netflix/"
+    },
+    {
+        title: "Simple Cube",
+        date: ["MARCH", 2024],
+        url: "https://rowan-hyeho-song.github.io/SimpleCube/"
     }
 ];
 const PortfolioList = Array.from({ length: Math.max(datas.length, 15) }, (_, i) => {
